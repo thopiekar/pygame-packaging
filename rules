@@ -34,6 +34,10 @@ override_dh_installdocs:
 override_dh_installchangelogs:
 	dh_installchangelogs -a WHATSNEW
 
+override_dh_auto_test:
+	echo "Skipping tests..."
+	# dh_auto_test
+
 override_dh_link:
 	# Replace embedded font with system copy
 	ln -sf /usr/share/fonts/truetype/freefont/FreeSansBold.ttf \
