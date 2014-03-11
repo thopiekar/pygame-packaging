@@ -1,0 +1,70 @@
+Source: pygame
+Section: python
+Priority: optional
+Maintainer: Ed Boraas <ed@debian.org>
+Uploaders:
+ A Mennucc1 <mennucc1@debian.org>,
+ Vincent Cheng <Vincentc1208@gmail.com>
+Build-Depends:
+ debhelper (>= 9),
+ libjpeg-dev,
+ libpng-dev,
+ libportmidi-dev [linux-any],
+ libsdl-image1.2-dev (>= 1.2.0-1.1),
+ libsdl-mixer1.2-dev (>= 1.2.0-1.1),
+ libsdl-ttf2.0-dev (>= 1.2.2-1.1),
+ libsdl1.2-dev (>= 1.2.2-3.1),
+ libsmpeg-dev (>= 0.4.5+cvs20030824-1.3),
+ python-all-dev, python3-all-dev,
+ python-numpy,   python3-numpy,
+ sharutils
+Standards-Version: 3.9.3
+X-Python-Version: >= 2.3
+X-Python3-Version: >= 3.0
+Homepage: http://www.pygame.org/
+Vcs-Svn: svn://svn.debian.org/svn/collab-maint/deb-maint/pygame/trunk
+Vcs-Browser: http://svn.debian.org/wsvn/collab-maint/deb-maint/pygame/trunk
+
+Package: python-pygame
+Architecture: any
+Depends:
+ python-numpy (>= 1:1.6.1),
+ python-numpy-abi9,
+ ttf-freefont,
+ ${misc:Depends},
+ ${python:Depends},
+ ${shlibs:Depends}
+Suggests: timidity
+Provides: ${python:Provides}
+Replaces: python2.3-pygame, python2.4-pygame
+Conflicts: python2.3-pygame, python2.4-pygame
+Description: SDL bindings for games development in Python
+ A multimedia development kit for Python. Pygame provides modules for you
+ to access the video display, play sounds, track time, read the mouse and
+ joystick, control the CD player, render true type fonts and more. It does
+ this using mainly the cross-platform SDL library, a lightweight wrapper
+ to OS-specific APIs.
+ .
+ This package also includes Pygame's API documentation and examples.
+
+Package: python3-pygame
+Architecture: any
+Depends:
+ python3-numpy (>= 1:1.6.1),
+ python3-numpy-abi9,
+ ttf-freefont,
+ ${misc:Depends},
+ ${python3:Depends},
+ ${shlibs:Depends}
+Suggests: timidity
+Provides: ${python:Provides}
+Replaces: python2.3-pygame, python2.4-pygame
+Conflicts: python2.3-pygame, python2.4-pygame
+Description: SDL bindings for games development in Python
+ A multimedia development kit for Python. Pygame provides modules for you
+ to access the video display, play sounds, track time, read the mouse and
+ joystick, control the CD player, render true type fonts and more. It does
+ this using mainly the cross-platform SDL library, a lightweight wrapper
+ to OS-specific APIs.
+ .
+ This package also includes Pygame's API documentation and examples.

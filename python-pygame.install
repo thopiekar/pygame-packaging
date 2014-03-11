@@ -1,0 +1,7 @@
+usr/lib/python2*/dist-packages/pygame-*.egg-info
+usr/lib/python2*/dist-packages/pygame/*
+usr/lib/python2*/dist-packages/pygame/examples/*
+usr/lib/python2*/dist-packages/pygame/docs/*
+usr/lib/python2*/dist-packages/pygame/tests/*
+
+usr/include/python2*/pygame/*

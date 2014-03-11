@@ -1,0 +1,45 @@
+#!/usr/bin/make -f
+
+DEB_HOST_MULTIARCH = $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
+export ORIGLIBDIRS := /lib:/lib/$(DEB_HOST_MULTIARCH)
+
+export DEB_HOST_ARCH_OS := $(shell dpkg-architecture -qDEB_HOST_ARCH_OS)
+
+# We include all the documentation except:
+# util (which is for building the docs from the source)
+# fullinstall.txt (which is installation instructions)
+# LGPL (which is in /usr/share/common-licenses/LGPL-2.1 under Debian)
+doclist = $(filter-out docs/util docs/fullinstall.txt docs/LGPL,$(wildcard docs/*))
+
+%:
+	dh $@ --with python2,python3 --parallel
+
+override_dh_clean:
+	rm -f *.pyc Setup
+	rm -rf build
+
+	dh_clean
+
+override_dh_auto_build:
+	python  setup.py build_ext --inplace 
+	python3 setup.py build_ext --inplace
+
+override_dh_auto_install:
+	python  setup.py install --root=$(CURDIR)/debian/tmp --prefix=/usr --install-layout=deb
+	python3 setup.py install --root=$(CURDIR)/debian/tmp --prefix=/usr --install-layout=deb
+
+override_dh_installdocs:
+	dh_installdocs -a $(doclist)
+
+override_dh_installchangelogs:
+	dh_installchangelogs -a WHATSNEW
+
+override_dh_link:
+	# Replace embedded font with system copy
+	ln -sf /usr/share/fonts/truetype/freefont/FreeSansBold.ttf \
+	$(CURDIR)/debian/python-pygame/usr/share/pyshared/pygame/freesansbold.ttf
+	
+	dh_link -a
+
+override_dh_install:
+	dh_install --fail-missing --sourcedir debian/tmp
