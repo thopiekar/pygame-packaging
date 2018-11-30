@@ -31,9 +31,6 @@ override_dh_auto_install:
 override_dh_installdocs:
 	dh_installdocs -a $(doclist)
 
-override_dh_installchangelogs:
-	dh_installchangelogs -a WHATSNEW
-
 override_dh_auto_test:
 	echo "Skipping tests..."
 	# dh_auto_test
