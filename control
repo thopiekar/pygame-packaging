@@ -13,7 +13,7 @@ Build-Depends:
  libsdl-image1.2-dev (>= 1.2.0-1.1),
  libsdl-mixer1.2-dev (>= 1.2.0-1.1),
  libsdl-ttf2.0-dev (>= 1.2.2-1.1),
- libsdl1.2-dev (>= 1.2.2-3.1),
+ libsdl2-dev,
  libsmpeg-dev (>= 0.4.5+cvs20030824-1.3),
  libfreetype6-dev,
  python-all-dev, python3-all-dev,
