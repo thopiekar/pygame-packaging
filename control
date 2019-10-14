@@ -1,10 +1,7 @@
 Source: pygame
 Section: python
 Priority: optional
-Maintainer: Ed Boraas <ed@debian.org>
-Uploaders:
- A Mennucc1 <mennucc1@debian.org>,
- Vincent Cheng <Vincentc1208@gmail.com>
+Maintainer: Thomas Karl Pietrowski <thopiekar@gmail.com>
 Build-Depends:
  debhelper (>= 9),
  libjpeg-dev,
